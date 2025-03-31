@@ -1,0 +1,12 @@
+.geo_obj {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  /* border-bottom: 1px solid #aeaeae; */
+}
+
+/* .geo_obj:last-of-type {
+  border-bottom: none;
+} */

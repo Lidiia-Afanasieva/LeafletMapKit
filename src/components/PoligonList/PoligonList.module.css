@@ -1,0 +1,14 @@
+.container {
+  z-index: 1000;
+  width: 25vw;
+  max-width: 400px;
+  position: absolute; 
+  top: 40px;
+  left: 40px;
+  overflow: auto;
+
+  background-color: white;
+  padding: 20px 30px 20px 10px;
+  border: 1px solid #bcccdc;
+  border-radius: 8px;
+}

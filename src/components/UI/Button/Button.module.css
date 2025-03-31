@@ -1,0 +1,16 @@
+.button {
+  padding: 5px 15px;
+  /* font-size: 14px; */
+  margin: 8px 0;
+  border-radius: 4px;
+}
+
+.save {
+  background-color: #c4dad2;
+  border: 1px solid #6a9c89;
+}
+
+.delete {
+  color: #ce8484;
+  border: 1px solid #da7f8f;
+}
