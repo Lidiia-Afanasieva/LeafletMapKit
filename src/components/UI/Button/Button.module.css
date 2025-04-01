@@ -11,6 +11,7 @@
 }
 
 .delete {
-  color: #ce8484;
+  color: #000;
+  background-color: #e8c9c9;
   border: 1px solid #da7f8f;
 }

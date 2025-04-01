@@ -1,0 +1,21 @@
+.form {
+  z-index: 1000;
+  width: 25vw;
+  max-width: 350px;
+  min-width: 250px;
+  /* position: absolute; 
+  top: 600px;
+  left: 40px; */
+
+  background-color: white;
+  padding: 20px 30px 20px 20px;
+  border: 1px solid #bcccdc;
+  border-radius: 8px;
+  /* margin: 5px 10px; */
+}
+
+.error {
+  margin-left: 10px;
+  color: #ce5555;
+  font-size: 0.8rem;
+}

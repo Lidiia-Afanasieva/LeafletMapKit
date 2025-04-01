@@ -1,9 +1,11 @@
 import React, { useRef, useEffect } from "react"
 import classes from './Map.module.css'
+import { useSelector } from "react-redux";
 
-const Map = ({ geoJsonData }) => {
+function Map() {
   const mapRef = useRef(null);
   const geoJsonLayerRef = useRef(null);
+  const geoData = useSelector(state => state.geobase.data)
 
   useEffect(() => {
     mapRef.current = L.map("map-id", { zoomControl: false }).setView(
@@ -26,7 +28,7 @@ const Map = ({ geoJsonData }) => {
 
 
   useEffect(() => {
-    if (mapRef.current && geoJsonData) {
+    if (mapRef.current && geoData) {
       // console.log(mapRef.current)
 
       if (geoJsonLayerRef.current) {
@@ -35,7 +37,7 @@ const Map = ({ geoJsonData }) => {
 
 
       // слой с полигонами
-      geoJsonLayerRef.current = L.geoJSON(geoJsonData, {
+      geoJsonLayerRef.current = L.geoJSON(geoData, {
         onEachFeature: function (feature, layer) {
           layer.bindPopup(feature.properties.name);
           layer.featureid = feature.properties.id;
@@ -43,7 +45,7 @@ const Map = ({ geoJsonData }) => {
       }).addTo(mapRef.current);
     }
 
-  }, [geoJsonData])
+  }, [geoData])
 
   return (
     <div className={classes.map} id="map-id"></div>

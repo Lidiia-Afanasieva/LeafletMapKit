@@ -1,22 +1,34 @@
 import { useEffect } from "react";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
-import "./style.css";
+import "./styles/style.css";
 import Map from "./components/Map";
-import useGeoJsonData from "./hooks/useGeoJsonData";
-import PoligonForm from "./components/PoligonForm";
-import PoligonList from "./components/PoligonList";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchGeobase } from "./features/geobase/geobaseSlice";
+import InteractionPanel from "./components/InteractionPanel";
+
+const DATA_PATH = './shapes.json'
 
 function App() {
-  const DATA_PATH = './shapes.json'
+  const dispatch = useDispatch();
+  const geobaseStatus = useSelector(state => state.geobase.status);
 
-  const { geoJsonData, addPoligon, deleteGeoObject } = useGeoJsonData({ poligonDataPath: DATA_PATH });
+  useEffect(() => {
+    dispatch(fetchGeobase(DATA_PATH));
+  }, [])
+
+  if (geobaseStatus === 'loading') {
+    return <div>Загрузка...</div>;
+  }
+
+  if (geobaseStatus === 'failed') {
+    return <div>Ошибка загрузки {DATA_PATH}</div>;
+  }
 
   return (
     <div>
-      <Map style={{ position: 'static' }} geoJsonData={geoJsonData} />
-      <PoligonForm addPoligon={addPoligon} />
-      <PoligonList geoJsonData={geoJsonData} deleteGeoObject={deleteGeoObject} />
+      <Map style={{ position: 'static' }} />
+      <InteractionPanel />
     </div>
   );
 }

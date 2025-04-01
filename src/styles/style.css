@@ -1,0 +1,23 @@
+@font-face {
+  font-family: 'Helvetica';
+  src: url('./fonts/Helvetica.ttf') format('ttf');
+}
+
+@font-face {
+  font-family: 'Arial';
+  src: url('./fonts/ARIAL.woff') format('woff');
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Helvetica', 'Arial', sans-serif;
+  font-size: 16px;
+  /* color: ; */
+}
+
+#map-id {
+  height: 100vh;
+}
+

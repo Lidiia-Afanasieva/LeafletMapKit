@@ -1,0 +1,11 @@
+.container {
+  z-index: 1000;
+  display: flex;
+  position: absolute;
+  left: 40px;
+  top: 20px;
+  bottom: 20px;
+  flex-direction: column;
+  gap: 50px;
+  justify-content: space-around;
+}
